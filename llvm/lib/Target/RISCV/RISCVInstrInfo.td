@@ -341,6 +341,11 @@ class Load_ri<bits<3> funct3, string opcodestr>
     : RVInstI<funct3, OPC_LOAD, (outs GPR:$rd), (ins GPR:$rs1, simm12:$imm12),
               opcodestr, "$rd, ${imm12}(${rs1})">;
 
+let hasSideEffects = 0, mayLoad = 1, mayStore = 0 in
+class Load_pi<bits<3> funct3, string opcodestr>
+    : RVInstI<funct3, OPC_PAN, (outs GPR:$rd), (ins GPR:$rs1, simm12:$imm12),
+              opcodestr, "$rd, ${imm12}(${rs1})">;
+
 // Operands for stores are in the order srcreg, base, offset rather than
 // reflecting the order these fields are specified in the instruction
 // encoding.
@@ -1179,3 +1184,4 @@ include "RISCVInstrInfoD.td"
 include "RISCVInstrInfoC.td"
 include "RISCVInstrInfoB.td"
 include "RISCVInstrInfoV.td"
+include "RISCVInstrInfoP.td"

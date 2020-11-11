@@ -79,6 +79,11 @@ def : WriteRes<WriteLDH, [SiFive7PipeA]>;
 def : WriteRes<WriteLDW, [SiFive7PipeA]>;
 def : WriteRes<WriteLDWU, [SiFive7PipeA]>;
 def : WriteRes<WriteLDD, [SiFive7PipeA]>;
+
+// PAN memory operations
+def : WriteRes<WriteFUTURE, [RocketUnitMem]>;
+def : WriteRes<ReadSFUTURE, [RocketUnitMem]>;
+def : WriteRes<ReadRFUTURE, [RocketUnitMem]>;
 }
 
 let Latency = 2 in {

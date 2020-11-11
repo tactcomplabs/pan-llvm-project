@@ -12,6 +12,13 @@ include "llvm/Target/Target.td"
 // RISC-V subtarget features and instruction predicates.
 //===----------------------------------------------------------------------===//
 
+def FeatureStdExtP
+    : SubtargetFeature<"p", "HasStdExtP", "true",
+                       "'P' (Programmable Accelerator Networks)">;
+def HasStdExtP : Predicate<"Subtarget->hasStdExtP()">,
+                           AssemblerPredicate<(all_of FeatureStdExtP),
+                           "'P' (Programmable Accelerator Networks)">;
+
 def FeatureStdExtM
     : SubtargetFeature<"m", "HasStdExtM", "true",
                        "'M' (Integer Multiplication and Division)">;
@@ -253,6 +260,13 @@ def : ProcessorModel<"sifive-u74", SiFive7Model, [Feature64Bit,
                                                   FeatureStdExtF,
                                                   FeatureStdExtD,
                                                   FeatureStdExtC]>;
+
+def : ProcessorModel<"pan", NoSchedModel, [Feature64Bit,
+                                           FeatureStdExtM,
+                                           FeatureStdExtA,
+                                           FeatureStdExtF,
+                                           FeatureStdExtD,
+                                           FeatureStdExtP]>;
 
 //===----------------------------------------------------------------------===//
 // Define the RISC-V target.

@@ -111,6 +111,7 @@ def OPC_BRANCH    : RISCVOpcode<0b1100011>;
 def OPC_JALR      : RISCVOpcode<0b1100111>;
 def OPC_JAL       : RISCVOpcode<0b1101111>;
 def OPC_SYSTEM    : RISCVOpcode<0b1110011>;
+def OPC_PAN       : RISCVOpcode<0b1110111>;
 
 class RVInst<dag outs, dag ins, string opcodestr, string argstr,
              list<dag> pattern, InstFormat format>

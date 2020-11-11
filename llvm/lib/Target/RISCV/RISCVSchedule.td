@@ -145,3 +145,9 @@ def ReadFCvtF32ToF64     : SchedRead;
 def ReadFCvtF64ToF32     : SchedRead;
 def ReadFClass32         : SchedRead;
 def ReadFClass64         : SchedRead;
+
+// PAN Schedules
+def WriteFUTURE      : SchedWrite;    // Future
+def ReadSFUTURE      : SchedWrite;    // Set Future
+def ReadRFUTURE      : SchedWrite;    // Read Future
+

@@ -92,6 +92,11 @@ def : WriteRes<WriteLDD, [RocketUnitMem]>;
 def : WriteRes<WriteFLD32, [RocketUnitMem]>;
 def : WriteRes<WriteFLD64, [RocketUnitMem]>;
 
+// PAN memory operations
+def : WriteRes<WriteFUTURE, [RocketUnitMem]>;
+def : WriteRes<ReadSFUTURE, [RocketUnitMem]>;
+def : WriteRes<ReadRFUTURE, [RocketUnitMem]>;
+
 // Atomic memory
 def : WriteRes<WriteAtomicW, [RocketUnitMem]>;
 def : WriteRes<WriteAtomicD, [RocketUnitMem]>;
